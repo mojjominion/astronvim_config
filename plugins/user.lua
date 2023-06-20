@@ -9,4 +9,20 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  --
+  "jose-elias-alvarez/typescript.nvim", -- add lsp plugin
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = { "tsserver" }, -- automatically install lsp
+    },
+  },
+
+  "simrat39/rust-tools.nvim", -- add lsp plugin
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = { "rust_analyzer" },
+    },
+  },
 }

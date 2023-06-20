@@ -27,13 +27,27 @@ return {
   },
 
   lsp = {
+    setup_handlers = {
+      -- add custom handler
+      tsserver = function(_, opts) require("typescript").setup { server = opts } end,
+      rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end,
+    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
+          "go",
+          "python",
+          "rust",
+
+          "typescriptreact",
+          "typescript",
+          "javascript",
+
+          "json",
+          "xml",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
