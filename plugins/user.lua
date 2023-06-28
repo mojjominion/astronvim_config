@@ -25,4 +25,9 @@ return {
       ensure_installed = { "rust_analyzer" },
     },
   },
+
+  "lunarvim/Onedarker.nvim",
+  init = function() -- init function runs before the plugin is loaded
+    vim.g.Onedarker_style = "Onedarker"
+  end,
 }
