@@ -28,6 +28,8 @@ return {
                 convertTabsToSpaces = vim.o.expandtab,
                 tabSize = vim.o.tabstop,
               },
+              autoClosingTags = true,
+              referencesCodeLens = { enabled = true, showOnAllFunctions = false },
             },
             javascript = {
               format = {
@@ -35,6 +37,8 @@ return {
                 convertTabsToSpaces = vim.o.expandtab,
                 tabSize = vim.o.tabstop,
               },
+              autoClosingTags = true,
+              referencesCodeLens = { enabled = true, showOnAllFunctions = false },
             },
             completions = {
               completeFunctionCalls = true,
