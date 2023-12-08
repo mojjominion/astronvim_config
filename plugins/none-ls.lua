@@ -1,7 +1,7 @@
--- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+-- https://github.com/nvimtools/none-ls.nvim
 --
 return {
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   opts = function(_, config)
     -- config variable is the default configuration table for the setup function call
     local null_ls = require "null-ls"
@@ -14,7 +14,7 @@ return {
       -- null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.prettier,
 
-      -- null_ls.builtins.diagnostics.prettier,
+      null_ls.builtins.diagnostics.prettier,
       null_ls.builtins.diagnostics.eslint,
 
       null_ls.builtins.completion.spell,
