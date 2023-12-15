@@ -3,7 +3,7 @@ return {
   { -- further customize the options set by the community
     "catppuccin",
     opts = {
-      flavour = "frappe", -- latte, frappe, macchiato, mocha
+      flavour = "macchiato", -- latte, frappe, macchiato, mocha
       background = { -- :h background
         light = "latte",
         dark = "frappe",
