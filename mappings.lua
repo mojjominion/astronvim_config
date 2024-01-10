@@ -19,6 +19,7 @@ return {
     },
 
     ["<leader>fd"] = { "<cmd>Telescope media_files<cr>", desc = "Find media files" },
+    ["<leader>lb"] = { "<cmd>LspRestart<cr>", desc = "Restart Lsp" },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
