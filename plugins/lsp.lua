@@ -40,20 +40,20 @@ return {
           },
           settings = {
             typescript = {
-              format = {
-                indentSize = vim.o.shiftwidth,
-                convertTabsToSpaces = vim.o.expandtab,
-                tabSize = vim.o.tabstop,
-              },
+              -- format = {
+              --   indentSize = vim.o.shiftwidth,
+              --   convertTabsToSpaces = vim.o.expandtab,
+              --   tabSize = vim.o.tabstop,
+              -- },
               autoClosingTags = true,
               referencesCodeLens = { enabled = true, showOnAllFunctions = false },
             },
             javascript = {
-              format = {
-                indentSize = vim.o.shiftwidth,
-                convertTabsToSpaces = vim.o.expandtab,
-                tabSize = vim.o.tabstop,
-              },
+              -- format = {
+              --   indentSize = vim.o.shiftwidth,
+              --   convertTabsToSpaces = vim.o.expandtab,
+              --   tabSize = vim.o.tabstop,
+              -- },
               autoClosingTags = true,
               referencesCodeLens = { enabled = true, showOnAllFunctions = false },
             },
