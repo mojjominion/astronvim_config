@@ -7,6 +7,7 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+  { import = "astrocommunity.motion.leap-nvim" },
   {
     "m4xshen/smartcolumn.nvim",
     opts = {
