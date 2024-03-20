@@ -19,7 +19,7 @@ return {
   {
     "pmizio/typescript-tools.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    ft = { "typescript", "typescriptreact" },
+    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
     config = function()
@@ -36,52 +36,6 @@ return {
     end,
   },
 
-  -- correctly setup lspconfig
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   dependencies = { "jose-elias-alvarez/typescript.nvim" },
-  --   opts = {
-  --     -- make sure mason installs the server
-  --     servers = {
-  --       ---@type lspconfig.options.tsserver
-  --       tsserver = {
-  --         keys = {
-  --           { "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
-  --           { "<leader>cR", "<cmd>TypescriptRenameFile<CR>", desc = "Rename File" },
-  --         },
-  --         settings = {
-  --           typescript = {
-  --             -- format = {
-  --             --   indentSize = vim.o.shiftwidth,
-  --             --   convertTabsToSpaces = vim.o.expandtab,
-  --             --   tabSize = vim.o.tabstop,
-  --             -- },
-  --             autoClosingTags = true,
-  --             referencesCodeLens = { enabled = true, showOnAllFunctions = false },
-  --           },
-  --           javascript = {
-  --             -- format = {
-  --             --   indentSize = vim.o.shiftwidth,
-  --             --   convertTabsToSpaces = vim.o.expandtab,
-  --             --   tabSize = vim.o.tabstop,
-  --             -- },
-  --             autoClosingTags = true,
-  --             referencesCodeLens = { enabled = true, showOnAllFunctions = false },
-  --           },
-  --           completions = {
-  --             completeFunctionCalls = true,
-  --           },
-  --         },
-  --       },
-  --     },
-  --     setup = {
-  --       tsserver = function(_, opts)
-  --         require("typescript").setup { server = opts }
-  --         return true
-  --       end,
-  --     },
-  --   },
-  -- },
   {
     "nvimtools/none-ls.nvim",
     opts = function(_, opts) table.insert(opts.sources, require "typescript.extensions.null-ls.code-actions") end,
