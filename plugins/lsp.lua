@@ -1,4 +1,11 @@
 return {
+  {
+    "danymat/neogen",
+    lazy = false,
+    config = true,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
+  },
   --  bash
   "bash-lsp/bash-language-server",
   {
@@ -80,7 +87,9 @@ return {
   },
 
   {
-    "simrat39/rust-tools.nvim",
+    "mrcjkb/rustaceanvim",
+    version = "^4", -- Recommended
+    ft = { "rust" },
     lazy = true,
     opts = function()
       local ok, mason_registry = pcall(require, "mason-registry")
@@ -91,8 +100,8 @@ return {
         local extension_path = codelldb:get_install_path() .. "/extension/"
         local codelldb_path = extension_path .. "adapter/codelldb"
         local liblldb_path = vim.fn.has "mac" == 1 and extension_path .. "lldb/lib/liblldb.dylib"
-          or extension_path .. "lldb/lib/liblldb.so"
-        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+            or extension_path .. "lldb/lib/liblldb.so"
+        adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path)
       end
       return {
         dap = {
@@ -102,11 +111,11 @@ return {
           on_initialized = function()
             vim.cmd [[
                   augroup RustLSP
-                    autocmd CursorHold                      *.rs silent! lua vim.lsp.buf.document_highlight()
-                    autocmd CursorMoved,InsertEnter         *.rs silent! lua vim.lsp.buf.clear_references()
-                    autocmd BufEnter,CursorHold,InsertLeave *.rs silent! lua vim.lsp.codelens.refresh()
+                  autocmd CursorHold                      *.rs silent! lua vim.lsp.buf.document_highlight()
+                  autocmd CursorMoved,InsertEnter         *.rs silent! lua vim.lsp.buf.clear_references()
+                  autocmd BufEnter,CursorHold,InsertLeave *.rs silent! lua vim.lsp.codelens.refresh()
                   augroup END
-                ]]
+                  ]]
           end,
         },
       }
@@ -122,9 +131,9 @@ return {
         -- Ensure mason installs the server
         rust_analyzer = {
           keys = {
-            { "K", "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
-            { "<leader>cR", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
-            { "<leader>dr", "<cmd>RustDebuggables<cr>", desc = "Run Debuggables (Rust)" },
+            { "K",          "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
+            { "<leader>cR", "<cmd>RustCodeAction<cr>",   desc = "Code Action (Rust)" },
+            { "<leader>dr", "<cmd>RustDebuggables<cr>",  desc = "Run Debuggables (Rust)" },
           },
           settings = {
             ["rust-analyzer"] = {
@@ -165,13 +174,6 @@ return {
             },
           },
         },
-      },
-      setup = {
-        rust_analyzer = function(_, opts)
-          local rust_tools_opts = require("lazyvim.util").opts "rust-tools.nvim"
-          require("rust-tools").setup(vim.tbl_deep_extend("force", rust_tools_opts or {}, { server = opts }))
-          return true
-        end,
       },
     },
   },

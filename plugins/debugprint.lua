@@ -17,5 +17,6 @@ return {
   -- end,
   -- Remove the following line to use development versions,
   -- not just the formal releases
-  version = "*",
+  -- version = "*",
+  version = "v2.0.0",
 }
